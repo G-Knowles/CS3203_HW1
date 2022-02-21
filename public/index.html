@@ -1,22 +1,65 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
 
-<head>
-  <title>Welcome!</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <h1> Welcome! </h1>
-</head>
+    <form id="form1" method="POST">
+      <table style="margin-left:auto; margin-right:auto;">
+        <tr>
+          <button type="Submit" id="all-tweets-btn" class="btn btn-success">Get all Tweets</button>
+        </tr>
+        <br>
+        <tr>
+          <button type="Submit" id="all-users-btn" class="btn btn-success">Get all Users IDs</button>
+        </tr>
+        <br><br>
+        <tr>
+          <label>Enter Tweet ID:  </label></tr>
+          <tr><input class="form-control" type="text" name="username" id="username" required></tr>
+        </tr>
+        <br>
+        <tr>
+          <button type="Submit" id="tweet-dtls-btn" class="btn btn-success">Get Tweet Details</button>
+        </tr>
+        <br>
+        <tr>
+          <button type="Submit" id="del-tweet-btn" class="btn btn-success">Delete Tweet</button>
+        </tr>
+        <br> <br>
+          <tr><label>Enter Name:   </label></tr>
+          <tr><input class="form-control" type="text" name="screen_name" id="scrName" required></tr>
+        </tr>
+        <br>
+        <tr>
+          <tr><label>Enter new Screen Name:    </label></tr>
+          <tr><input class="form-control" type="Number" name="age" id="age" required></tr>
+        </tr>
+        <br>
+      </table>
+      <button type="Submit" id="add" class="btn btn-success">Submit</button>
+    </form>
 
-<body>
-<button> Get all Tweets </button> <br>
-<button> Get all User IDs </button> <br> <br>
+    <br />
 
-<label> Enter Tweet ID: </label> <input> <br>
-<button> Get Tweet Details </button> <br>
-<button> Delete Tweet </button> <br> <br>
 
-<label> Enter Name: </label> <input> <br>
-<label> Enter new screen name: </label> <input> <br>
-<button> Update Screen Name </button> <br> <br>
-</body>
+    <table id='myTable' style="margin-left:auto; margin-right:auto;">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Text</th>
+        <th>UserName</th>
+        <th>Created at</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
 
+      </tbody>
+    </table>
+  </body>
 </html>
