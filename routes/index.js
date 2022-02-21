@@ -2,23 +2,18 @@ var express = require('express');
 var router = express.Router();
 
 const fs = require("fs");
+var json = require("../favs.json");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-// Load in the json file
-fs.readFile('favs.json',
-    function(err, data) {
-      const jsonData = data;
-      const parsed = JSON.parse(jsonData);
-      console.log(parsed[0].id);
-    })
-
 // GET: Get request to get all tweets
-router.get('/', function(req, res){
-  res.json(parsed.text);
+router.get('/getTweets', function(req, res){
+    console.log('Get request fired!');
+
+    res.send(JSON.stringify(json));
 });
 
 // GET: Get request to get all user IDs

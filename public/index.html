@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="html">
   <head>
-    <title>CS3203 Assignment 1></title>
+    <!-- Including jQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <title>CS3203 Assignment 1</title>
   </head>
   <body>
     <h1>CS3203 Assignment 1</h1>
 
-    <form id="form1" method="POST">
+    <form id="form1" method="GET">
       <table style="margin-left:auto; margin-right:auto;">
         <tr>
           <button type="Submit" id="all-tweets-btn" class="btn btn-success">Get all Tweets</button>
         </tr>
         <br>
+        </table>
+    </form>
+    <!--
         <tr>
           <button type="Submit" id="all-users-btn" class="btn btn-success">Get all Users IDs</button>
         </tr>
         <br><br>
         <tr>
           <label>Enter Tweet ID:  </label></tr>
-          <tr><input class="form-control" type="text" name="username" id="username" required></tr>
+          <tr><input class="form-control" type="text" name="username" id="username"></tr>
         <br>
         <tr>
           <button type="Submit" id="tweet-dtls-btn" class="btn btn-success">Get Tweet Details</button>
@@ -30,11 +36,11 @@
 
         <br> <br>
         <tr><label>Enter new Tweet ID:   </label></tr>
-        <tr><input class="form-control" type="text" name="screen_name" id="new-tweet-ID" required></tr>
+        <tr><input class="form-control" type="text" name="screen_name" id="new-tweet-ID"></tr>
         <br>
         <tr>
         <tr><label>Enter new Tweet text:    </label></tr>
-        <tr><input class="form-control" type="Number" name="age" id="new-tweet-text" required></tr>
+        <tr><input class="form-control" type="Number" name="age" id="new-tweet-text"></tr>
         <br>
         <button type="Submit" id="create-tweet" class="btn btn-success">Create new Tweet</button>
 
@@ -42,11 +48,11 @@
 
         <! some comment >
           <tr><label>Enter Name:   </label></tr>
-          <tr><input class="form-control" type="text" name="screen_name" id="scrName" required></tr>
+          <tr><input class="form-control" type="text" name="screen_name" id="scrName"></tr>
         <br>
         <tr>
           <tr><label>Enter new Screen Name:    </label></tr>
-          <tr><input class="form-control" type="Number" name="age" id="age" required></tr>
+          <tr><input class="form-control" type="Number" name="age" id="age"></tr>
         <br>
       </table>
       <button type="Submit" id="upd-scrn-name" class="btn btn-success"> Update Screen Name</button>
@@ -54,7 +60,7 @@
 
     <br />
 
-
+-->
     <table id='myTable' style="margin-left:auto; margin-right:auto;">
       <thead>
       <tr>
@@ -71,3 +77,12 @@
     </table>
   </body>
 </html>
+
+<script>
+
+  document.getElementById('all-tweets-btn').onclick = function() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "/getTweets");
+    xhttp.send();
+  }
+</script>
