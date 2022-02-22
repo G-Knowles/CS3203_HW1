@@ -2,14 +2,17 @@
 <html lang="html">
   <head>
     <!-- Including jQuery  -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+    <script src="client.js"> </script>
+
     <title>CS3203 Assignment 1</title>
   </head>
+
+
   <body>
     <h1>CS3203 Assignment 1</h1>
 
-    <form id="form1" method="GET">
+    <form id="getTweets" method="GET">
       <table style="margin-left:auto; margin-right:auto;">
         <tr>
           <button type="Submit" id="all-tweets-btn" class="btn btn-success">Get all Tweets</button>
@@ -63,26 +66,9 @@
 -->
     <table id='myTable' style="margin-left:auto; margin-right:auto;">
       <thead>
-      <tr>
-        <th>ID</th>
-        <th>Text</th>
-        <th>UserName</th>
-        <th>Created at</th>
-        <th>Action</th>
-      </tr>
       </thead>
       <tbody>
-
       </tbody>
     </table>
   </body>
 </html>
-
-<script>
-
-  document.getElementById('all-tweets-btn').onclick = function() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "/getTweets");
-    xhttp.send();
-  }
-</script>
