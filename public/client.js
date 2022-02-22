@@ -4,38 +4,38 @@ $(document).ready(function () {
     //when a user click the "Get All Tweets" button
     $("#getTweets").submit(function (event) {
         event.preventDefault();
-        console.log($('#getTweets').serialize())
-        $.ajax({
-            type: 'GET',
-            url: '/getTweets',
-            data: $('#getTweets').serialize(),
-            dataType: "json",
-            success: function (response) {
-                ShowTweets();
-            },
-            error: function () {
-            }
-        })
+       sendAjaxRequest("GET", $(this), "/getTweets", ShowTweets);
     });
 
     //when a user click the "Get all User IDs" button
     $("#getUsers").submit(function (event) {
         event.preventDefault();
-        console.log($('#getUsers').serialize())
-        $.ajax({
-            type: 'GET',
-            url: '/getTweets',
-            data: $('#getUsers').serialize(),
-            dataType: "json",
-            success: function (response) {
-                ShowUsers();
-            },
-            error: function () {
-            }
-        })
+        sendAjaxRequest("GET", $(this), "/getUsers", ShowUsers);
     });
 
-    function ShowTweets() {
+    //when a user click the "Get Tweet Details" button
+    $("#tweetID").submit(function (event) {
+        event.preventDefault();
+        console.log("Request sent");
+        sendAjaxRequest("GET", $(this), "/getTweetID", ShowTweet);
+    });
+
+
+    //when a user click the "Get all User IDs" button
+
+
+    function sendAjaxRequest(type, element, urlToSend, successFunc) {
+        $.ajax({type: type,
+            url: urlToSend,
+            data: { id: element.val()},
+            success:successFunc(),
+            error:function(result)
+            {
+                alert('error');
+            }
+        });
+    }
+    function ShowTweets(response) {
         $.ajax({
             type: 'GET',
             url: '/getTweets',
@@ -103,6 +103,42 @@ $(document).ready(function () {
                         </tr>\
                         ');
                 });
+            },
+            error: function () {
+            }
+        })
+    }
+
+    function ShowTweet() {
+        console.log("In the right spot");
+        $.ajax({
+            type: 'GET',
+            url: '/getTweetID',
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+                // let tbodyEl = $('tbody');
+                let theadEl = $("#myTable > thead")
+                let tbodyEl = $("#myTable > tbody")
+
+                theadEl.html('');
+                tbodyEl.html('');
+
+                theadEl.append('\
+                   <tr>\
+                    <th>Text</th>\
+                    <th>Created at</th>\
+                </tr>\
+                ');
+                /*response.forEach(function (product) {
+                    tbodyEl.append('\
+                        <tr>\
+                        <td class="Text">' + product.text + '</td>\
+                        <td class="created">' + product.created_at + '</td>\
+                        </td>\
+                        </tr>\
+                        ');
+                });*/
             },
             error: function () {
             }
