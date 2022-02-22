@@ -11,12 +11,13 @@ router.get('/', function(req, res, next) {
 
 // GET: Get request to get all tweets
 router.get('/getTweets', function(req, res){
-    console.log('Get request fired!');
-
     res.send(JSON.stringify(json));
 });
 
 // GET: Get request to get all user IDs
+router.get('/getUsers', function(req, res){
+    res.send(JSON.stringify(json));
+});
 
 // GET: Get request to get the details of a given tweet ID
 
