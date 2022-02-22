@@ -12,59 +12,49 @@
   <body>
     <h1>CS3203 Assignment 1</h1>
 
+    <h3> Get All Tweets and Users </h3>
     <form id="getTweets" method="GET">
-        <tr>
-          <button type="Submit" id="all-tweets-btn" class="btn btn-success">Get all Tweets</button>
-        </tr>
+        <button type="Submit" id="all-tweets-btn" class="btn btn-success">Get all Tweets</button>
     </form>
 
     <form id="getUsers" method="GET">
-        <tr>
-          <button type="Submit" id="all-users-btn" class="btn btn-success">Get all Users IDs</button>
-        </tr>
-    </form>
+        <button type="Submit" id="all-users-btn" class="btn btn-success">Get all Users IDs</button>
+    </form><br>
 
-    <!--
-      <br><br>
-      <tr>
-        <label>Enter Tweet ID:  </label></tr>
-        <tr><input class="form-control" type="text" name="username" id="username"></tr>
-      <br>
-      <tr>
-        <button type="Submit" id="tweet-dtls-btn" class="btn btn-success">Get Tweet Details</button>
-      </tr>
-      <br>
-      <tr>
-        <button type="Submit" id="del-tweet-btn" class="btn btn-success">Delete Tweet</button>
-      </tr>
+    <h3> Interact With a Specific Tweet </h3>
+    <form id="getTweetID" method="GET">
+      <label for="tweet-id">Enter Tweet ID: </label>
+          <input class="form-control" type="text" name="tweet-id" id="tweet-id"><br>
 
-      <br> <br>
-      <tr><label>Enter new Tweet ID:   </label></tr>
-      <tr><input class="form-control" type="text" name="screen_name" id="new-tweet-ID"></tr>
-      <br>
-      <tr>
-      <tr><label>Enter new Tweet text:    </label></tr>
-      <tr><input class="form-control" type="Number" name="age" id="new-tweet-text"></tr>
-      <br>
+      <button type="Submit" id="tweet-dtls-btn" class="btn btn-success">Get Tweet Details</button><br>
+
+      <!--<button type="Submit" id="del-tweet-btn" class="btn btn-success">Delete Tweet</button>-->
+    </form><br>
+
+    <h3> Create New Tweet</h3>
+    <form id="createNewTweet" method="POST">
+      <label for="new-tweet-ID">Enter new Tweet ID: </label>
+        <input class="form-control" type="text" name="screen_name" id="new-tweet-ID"> <br>
+
+      <label for="new-tweet-text">Enter new Tweet text:</label>
+        <input class="form-control" type="text" name="age" id="new-tweet-text"> <br>
       <button type="Submit" id="create-tweet" class="btn btn-success">Create new Tweet</button>
+    </form> <br>
 
-      <br> <br>
+    <h3> Update Screen Name</h3>
+    <form id="updateScreenName" method="POST">
 
-      <! some comment >
-        <tr><label>Enter Name:   </label></tr>
-        <tr><input class="form-control" type="text" name="screen_name" id="scrName"></tr>
-      <br>
-      <tr>
-        <tr><label>Enter new Screen Name:    </label></tr>
-        <tr><input class="form-control" type="Number" name="age" id="age"></tr>
-      <br>
-    </table>
-    <button type="Submit" id="upd-scrn-name" class="btn btn-success"> Update Screen Name</button>
-  </form>
+      <label for="scrName">Enter Name:</label>
+        <input class="form-control" type="text" name="screen_name" id="scrName"><br>
 
-  <br />
+      <label for="new-screen-name">Enter new Screen Name:</label>
+        <input class="form-control" type="text" name="new-screen-name" id="new-screen-name"><br>
 
--->
+      <button type="Submit" id="upd-screen-name" class="btn btn-success"> Update Screen Name</button>
+
+    </form><br>
+
+    <h3> Results Output</h3>
     <table id='myTable' style="margin-left:auto; margin-right:auto;">
       <thead>
       </thead>
