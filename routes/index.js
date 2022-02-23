@@ -22,13 +22,11 @@ router.get('/getUsers', function(req, res){
 
 // GET: Get request to get the details of a given tweet ID
 router.post('/getTweetID', function(req, res){
-    console.log(req.body);
     let currTweet = json.filter(function (tweet) {
         if (tweet.id == req.body.tweetID) {
             return true;
         }
     });
-    console.log(currTweet);
     if(currTweet.length == 1){
         res.json(currTweet)
     } else {
@@ -49,4 +47,18 @@ router.post('/createNewTweet', function(req, res){
 // PUT: Put request to update a screen name given current and new name
 
 // DELETE: Delete request to delete a tweet given tweet ID
+router.delete('/deleteTweetID', function(req, res){
+    let removeIndex = json.map(function(tweet){
+        return tweet.id;
+    }).indexOf(req.body.tweetID); //Gets us the index of movie with given id.
+
+    if(removeIndex === -1){
+        res.json({message: "Not found"});
+    } else {
+        json.splice(removeIndex, 1);
+        res.json(json);
+    }
+
+});
+
 module.exports = router;

@@ -14,16 +14,20 @@ $(document).ready(function () {
     });
 
     //when a user click the "Get Tweet Details" button
-    $("#getTweetID").submit(function (event) {
+    $("#tweetDtlsBtn").click(function (event) {
         event.preventDefault();
-        console.log("Request sent");
         sendAjaxRequest("POST", $(this), $('#getTweetID').serializeArray(), "/getTweetID", ShowTweets);
+    });
+
+    //when a user click the "Delete Tweet" button
+    $("#delTweetBtn").click(function (event) {
+        event.preventDefault();
+        sendAjaxRequest("DELETE", $(this), $('#getTweetID').serializeArray(), "/deleteTweetID", ShowTweets);
     });
 
     //when a user click the "Get Tweet Details" button
     $("#createNewTweet").submit(function (event) {
         event.preventDefault();
-        console.log("In the right place");
         sendAjaxRequest("POST", $(this), $('#createNewTweet').serializeArray(), "/createNewTweet", ShowTweets);
     });
 
