@@ -17,7 +17,7 @@ $(document).ready(function () {
     $("#getTweetID").submit(function (event) {
         event.preventDefault();
         console.log("Request sent");
-        sendAjaxRequest("POST", $(this), "/getTweetID", ShowTweets);
+        sendAjaxRequest("POST", $(this), $('#getTweetID').serializeArray(), "/getTweetID", ShowTweets);
     });
 
     //when a user click the "Get Tweet Details" button

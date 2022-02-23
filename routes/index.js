@@ -22,14 +22,15 @@ router.get('/getUsers', function(req, res){
 
 // GET: Get request to get the details of a given tweet ID
 router.post('/getTweetID', function(req, res){
+    console.log(req.body);
     let currTweet = json.filter(function (tweet) {
-        if (tweet.id == req.body.id) {
+        if (tweet.id == req.body.tweetID) {
             return true;
         }
     });
-    //console.log(currTweet);
+    console.log(currTweet);
     if(currTweet.length == 1){
-        res.json(currTweet[0])
+        res.json(currTweet)
     } else {
         res.json({message: "Not Found"});
     }
