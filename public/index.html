@@ -12,6 +12,7 @@
   <body>
     <h1>CS3203 Assignment 1</h1>
 
+    <!-- Buttons to get all tweets and all users -->
     <h3> Get All Tweets and Users </h3>
     <form id="getTweets" method="GET">
         <button type="Submit" id="all-tweets-btn" class="btn btn-success">Get all Tweets</button>
@@ -21,6 +22,7 @@
         <button type="Submit" id="all-users-btn" class="btn btn-success">Get all Users IDs</button>
     </form><br>
 
+    <!-- Form to interact with a specific tweet given its ID (Get Details or Delete) -->
     <h3> Interact With a Specific Tweet </h3>
     <form id="getTweetID" action="/getTweetID" method="POST">
       <label for="tweetID">Enter Tweet ID: </label>
@@ -31,6 +33,7 @@
       <button type="Submit" id="delTweetBtn" class="btn btn-success">Delete Tweet</button>
     </form><br>
 
+    <!-- Form to create a new tweet given its ID and text -->
     <h3> Create New Tweet</h3>
     <form id="createNewTweet" method="post">
       <label for="newTweetID">Enter new Tweet ID: </label>
@@ -41,6 +44,7 @@
       <button type="Submit" id="createTweet" class="btn btn-success">Create new Tweet</button>
     </form> <br>
 
+    <!-- Form to update a user's screen_name given the old and new name -->
     <h3> Update Screen Name</h3>
     <form id="updateScreenName" method="PUT">
 
@@ -54,6 +58,7 @@
 
     </form><br>
 
+    <!-- Results table to display all the tasks -->
     <h3> Results Output</h3>
     <table id='myTable' style="margin-left:auto; margin-right:auto;">
       <thead>
