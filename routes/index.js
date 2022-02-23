@@ -21,24 +21,30 @@ router.get('/getUsers', function(req, res){
 });
 
 // GET: Get request to get the details of a given tweet ID
-router.get('/getTweetID', function(req, res){
+router.post('/getTweetID', function(req, res){
     let currTweet = json.filter(function (tweet) {
-        if (tweet.id == req.params.id) {
+        if (tweet.id == req.body.id) {
             return true;
         }
     });
-    console.log(currTweet);
+    //console.log(currTweet);
     if(currTweet.length == 1){
         res.json(currTweet[0])
     } else {
-        res.status(404);//Set status to 404 as movie was not found
         res.json({message: "Not Found"});
     }
 
 });
 
 // POST: Post request to create a tweet given text and ID
+router.post('/createNewTweet', function(req, res){
+    json.push ({
+        id: req.body.newTweetID,
+        text: req.body.newTweetText
+    });
+    res.json(json);
 
+});
 // PUT: Put request to update a screen name given current and new name
 
 // DELETE: Delete request to delete a tweet given tweet ID

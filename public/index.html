@@ -22,9 +22,9 @@
     </form><br>
 
     <h3> Interact With a Specific Tweet </h3>
-    <form id="getTweetID" method="GET">
-      <label for="tweet-id">Enter Tweet ID: </label>
-          <input class="form-control" type="text" name="tweet-id" id="tweet-id"><br>
+    <form id="getTweetID" action="/getTweetID" method="POST">
+      <label for="tweetID">Enter Tweet ID: </label>
+          <input type="text" name="tweetID" id="tweetID"><br>
 
       <button type="Submit" id="tweet-dtls-btn" class="btn btn-success">Get Tweet Details</button><br>
 
@@ -32,13 +32,13 @@
     </form><br>
 
     <h3> Create New Tweet</h3>
-    <form id="createNewTweet" method="POST">
-      <label for="new-tweet-ID">Enter new Tweet ID: </label>
-        <input class="form-control" type="text" name="screen_name" id="new-tweet-ID"> <br>
+    <form id="createNewTweet" method="post">
+      <label for="newTweetID">Enter new Tweet ID: </label>
+        <input class="form-control" type="text" name="newTweetID" id="newTweetID"> <br>
 
-      <label for="new-tweet-text">Enter new Tweet text:</label>
-        <input class="form-control" type="text" name="age" id="new-tweet-text"> <br>
-      <button type="Submit" id="create-tweet" class="btn btn-success">Create new Tweet</button>
+      <label for="newTweetText">Enter new Tweet text:</label>
+        <input class="form-control" type="text" name="newTweetText" id="newTweetText"> <br>
+      <button type="Submit" id="createTweet" class="btn btn-success">Create new Tweet</button>
     </form> <br>
 
     <h3> Update Screen Name</h3>
