@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const fs = require("fs");
 const json = require("../favs.json");
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
@@ -27,7 +26,7 @@ router.post('/getTweetID', function(req, res){
             return true;
         }
     });
-    if(currTweet.length == 1){
+    if(currTweet.length === 1){
         res.json(currTweet)
     } else {
         res.json({message: "Not Found"});
