@@ -25,14 +25,17 @@ $(document).ready(function () {
         sendAjaxRequest("DELETE", $(this), $('#getTweetID').serializeArray(), "/deleteTweetID", ShowTweets);
     });
 
-    //when a user click the "Get Tweet Details" button
+    //when a user click the "Create New Tweet" button
     $("#createNewTweet").submit(function (event) {
         event.preventDefault();
         sendAjaxRequest("POST", $(this), $('#createNewTweet').serializeArray(), "/createNewTweet", ShowTweets);
     });
 
-
-    //when a user click the "Get all User IDs" button
+    //when a user click the "Update Screen Name" button
+    $("#updateScreenName").submit(function (event) {
+        event.preventDefault();
+        sendAjaxRequest("PUT", $(this), $('#updateScreenName').serializeArray(), "/updateScreenName", ShowUsers);
+    });
 
 
     function sendAjaxRequest(type, element, data, urlToSend, successFunc) {
@@ -106,31 +109,3 @@ $(document).ready(function () {
         });
     }
 });
-
-/*    function ShowTweet(response) {
-        console.log("In the right spot");
-                console.log(response);
-                // let tbodyEl = $('tbody');
-                let theadEl = $("#myTable > thead")
-                let tbodyEl = $("#myTable > tbody")
-
-                theadEl.html('');
-                tbodyEl.html('');
-
-                theadEl.append('\
-                   <tr>\
-                    <th>Text</th>\
-                    <th>Created at</th>\
-                </tr>\
-                ');
-                /!*response.forEach(function (product) {
-                    tbodyEl.append('\
-                        <tr>\
-                        <td class="Text">' + product.text + '</td>\
-                        <td class="created">' + product.created_at + '</td>\
-                        </td>\
-                        </tr>\
-                        ');
-                });*!/
-
-    }*/

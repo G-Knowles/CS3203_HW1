@@ -45,6 +45,25 @@ router.post('/createNewTweet', function(req, res){
 
 });
 // PUT: Put request to update a screen name given current and new name
+router.put('/updateScreenName', function(req, res){
+    console.log(req.body);
+    let updateIndex = json.map(function(tweet){
+        return tweet.user.screen_name;
+    }).indexOf(req.body.oldScreenName); //Gets us the index of movie with given id.
+
+    console.log(updateIndex);
+    if(updateIndex === -1){
+        res.json({message: "Not found"});
+    } else {
+        json[updateIndex].user = {
+            screen_name: req.body.newScreenName,
+        };
+        res.json(json);
+    }
+
+
+
+});
 
 // DELETE: Delete request to delete a tweet given tweet ID
 router.delete('/deleteTweetID', function(req, res){
