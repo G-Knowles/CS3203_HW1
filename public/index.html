@@ -2,87 +2,69 @@
 <html lang="html">
   <head>
     <!-- Including jQuery  -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+    <script src="client.js"> </script>
+
     <title>CS3203 Assignment 1</title>
   </head>
+
+
   <body>
     <h1>CS3203 Assignment 1</h1>
 
-    <form id="form1" method="GET">
-      <table style="margin-left:auto; margin-right:auto;">
-        <tr>
-          <button type="Submit" id="all-tweets-btn" class="btn btn-success">Get all Tweets</button>
-        </tr>
-        <br>
-        </table>
-    </form>
-    <!--
-        <tr>
-          <button type="Submit" id="all-users-btn" class="btn btn-success">Get all Users IDs</button>
-        </tr>
-        <br><br>
-        <tr>
-          <label>Enter Tweet ID:  </label></tr>
-          <tr><input class="form-control" type="text" name="username" id="username"></tr>
-        <br>
-        <tr>
-          <button type="Submit" id="tweet-dtls-btn" class="btn btn-success">Get Tweet Details</button>
-        </tr>
-        <br>
-        <tr>
-          <button type="Submit" id="del-tweet-btn" class="btn btn-success">Delete Tweet</button>
-        </tr>
-
-        <br> <br>
-        <tr><label>Enter new Tweet ID:   </label></tr>
-        <tr><input class="form-control" type="text" name="screen_name" id="new-tweet-ID"></tr>
-        <br>
-        <tr>
-        <tr><label>Enter new Tweet text:    </label></tr>
-        <tr><input class="form-control" type="Number" name="age" id="new-tweet-text"></tr>
-        <br>
-        <button type="Submit" id="create-tweet" class="btn btn-success">Create new Tweet</button>
-
-        <br> <br>
-
-        <! some comment >
-          <tr><label>Enter Name:   </label></tr>
-          <tr><input class="form-control" type="text" name="screen_name" id="scrName"></tr>
-        <br>
-        <tr>
-          <tr><label>Enter new Screen Name:    </label></tr>
-          <tr><input class="form-control" type="Number" name="age" id="age"></tr>
-        <br>
-      </table>
-      <button type="Submit" id="upd-scrn-name" class="btn btn-success"> Update Screen Name</button>
+    <!-- Buttons to get all tweets and all users -->
+    <h3> Get All Tweets and Users </h3>
+    <form id="getTweets" method="GET">
+        <button type="Submit" id="all-tweets-btn" class="btn btn-success">Get all Tweets</button>
     </form>
 
-    <br />
+    <form id="getUsers" method="GET">
+        <button type="Submit" id="all-users-btn" class="btn btn-success">Get all Users IDs</button>
+    </form><br>
 
--->
+    <!-- Form to interact with a specific tweet given its ID (Get Details or Delete) -->
+    <h3> Interact With a Specific Tweet </h3>
+    <form id="getTweetID" action="/getTweetID" method="POST">
+      <label for="tweetID">Enter Tweet ID: </label>
+          <input type="text" name="tweetID" id="tweetID"><br>
+
+      <button type="Submit" id="tweetDtlsBtn" class="btn btn-success">Get Tweet Details</button><br>
+
+      <button type="Submit" id="delTweetBtn" class="btn btn-success">Delete Tweet</button>
+    </form><br>
+
+    <!-- Form to create a new tweet given its ID and text -->
+    <h3> Create New Tweet</h3>
+    <form id="createNewTweet" method="post">
+      <label for="newTweetID">Enter new Tweet ID: </label>
+        <input class="form-control" type="text" name="newTweetID" id="newTweetID"> <br>
+
+      <label for="newTweetText">Enter new Tweet text:</label>
+        <input class="form-control" type="text" name="newTweetText" id="newTweetText"> <br>
+      <button type="Submit" id="createTweet" class="btn btn-success">Create new Tweet</button>
+    </form> <br>
+
+    <!-- Form to update a user's screen_name given the old and new name -->
+    <h3> Update Screen Name</h3>
+    <form id="updateScreenName" method="PUT">
+
+      <label for="scrName">Enter Name:</label>
+        <input class="form-control" type="text" name="oldScreenName" id="scrName"><br>
+
+      <label for="newScreenName">Enter new Screen Name:</label>
+        <input class="form-control" type="text" name="newScreenName" id="newScreenName"><br>
+
+      <button type="Submit" id="upd-screen-name" class="btn btn-success"> Update Screen Name</button>
+
+    </form><br>
+
+    <!-- Results table to display all the tasks -->
+    <h3> Results Output</h3>
     <table id='myTable' style="margin-left:auto; margin-right:auto;">
       <thead>
-      <tr>
-        <th>ID</th>
-        <th>Text</th>
-        <th>UserName</th>
-        <th>Created at</th>
-        <th>Action</th>
-      </tr>
       </thead>
       <tbody>
-
       </tbody>
     </table>
   </body>
 </html>
-
-<script>
-
-  document.getElementById('all-tweets-btn').onclick = function() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "/getTweets");
-    xhttp.send();
-  }
-</script>
